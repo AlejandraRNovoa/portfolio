@@ -286,6 +286,48 @@ export default function App() {
         </div>
       </section>
 
+      <section className="contact" id="contacto">
+        <div className="contact-inner">
+          <span className="portfolio-label">CONTACTO</span>
+          <h2 className="portfolio-title">Hablemos<span className="accent-dot">.</span></h2>
+
+          <form
+            className="contact-form"
+            action="https://formspree.io/f/mdaynkaw"
+            method="POST"
+          >
+            <div className="contact-row">
+              <div className="contact-field">
+                <label className="contact-label" htmlFor="nombre">Nombre</label>
+                <input className="contact-input" id="nombre" name="nombre" type="text" required />
+              </div>
+              <div className="contact-field">
+                <label className="contact-label" htmlFor="apellido">Apellido</label>
+                <input className="contact-input" id="apellido" name="apellido" type="text" required />
+              </div>
+            </div>
+
+            <div className="contact-row">
+              <div className="contact-field">
+                <label className="contact-label" htmlFor="localidad">Localidad</label>
+                <input className="contact-input" id="localidad" name="localidad" type="text" />
+              </div>
+              <div className="contact-field">
+                <label className="contact-label" htmlFor="mail">Mail</label>
+                <input className="contact-input" id="mail" name="_replyto" type="email" required />
+              </div>
+            </div>
+
+            <div className="contact-field">
+              <label className="contact-label" htmlFor="mensaje">Mensaje</label>
+              <textarea className="contact-textarea contact-input" id="mensaje" name="mensaje" rows={5} required />
+            </div>
+
+            <button type="submit" className="btn btn-primary">Enviar</button>
+          </form>
+        </div>
+      </section>
+
       <footer className="footer">
         <div className="footer-copy">© 2026 ALEJANDRA NOVOA. ALL RIGHTS RESERVED.</div>
 

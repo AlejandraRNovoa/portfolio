@@ -493,3 +493,76 @@ button {
     grid-template-columns: 1fr;
   }
 }
+
+/* ── CONTACT ─────────────────────────────────────────── */
+.contact {
+  padding: 6rem 2rem;
+  background: var(--bg);
+  border-top: 1px solid var(--line);
+}
+
+.contact-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.contact-form {
+  margin-top: 3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  max-width: 52rem;
+}
+
+.contact-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+.contact-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.contact-label {
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--text);
+  opacity: 0.5;
+}
+
+.contact-input {
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid var(--line);
+  padding: 0.65rem 0;
+  font: inherit;
+  font-size: 1rem;
+  color: var(--text);
+  outline: none;
+  transition: border-color 0.2s ease;
+  width: 100%;
+}
+
+.contact-input:focus {
+  border-bottom-color: var(--accent);
+}
+
+.contact-textarea {
+  resize: vertical;
+  min-height: 7rem;
+}
+
+@media (max-width: 700px) {
+  .contact {
+    padding: 4rem 1.2rem;
+  }
+
+  .contact-row {
+    grid-template-columns: 1fr;
+  }
+}
