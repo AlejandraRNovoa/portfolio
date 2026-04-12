@@ -134,7 +134,9 @@ function WheelGraphic() {
 }
 
 export default function App() {
+  const [menuOpen, setMenuOpen] = useState(false)
   const gridRef = useRef(null)
+  const contactRef = useRef(null)
 
   useEffect(() => {
     const cards = gridRef.current?.querySelectorAll('.project-card')
@@ -152,6 +154,24 @@ export default function App() {
     return () => observer.disconnect()
   }, [])
 
+  useEffect(() => {
+    const section = contactRef.current
+    if (!section) return
+    // Activamos la clase de estado inicial solo desde JS para evitar flash
+    section.classList.add('contact-anim')
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          section.classList.add('contact-section--visible')
+          observer.unobserve(section)
+        }
+      },
+      { threshold: 0.12 }
+    )
+    observer.observe(section)
+    return () => observer.disconnect()
+  }, [])
+
   return (
     <div className="site-shell">
       <header className="topbar">
@@ -166,7 +186,27 @@ export default function App() {
           <a href="#" className="nav-link">QUIÉN SOY</a>
           <a href="#" className="nav-link">CONTACTO</a>
         </nav>
+
+        <button
+          className="hamburger"
+          onClick={() => setMenuOpen(o => !o)}
+          aria-label={menuOpen ? 'Cerrar menú' : 'Abrir menú'}
+        >
+          {menuOpen ? '✕' : (
+            <span className="hamburger-lines">
+              <span /><span /><span />
+            </span>
+          )}
+        </button>
       </header>
+
+      <div className={`mobile-overlay${menuOpen ? ' mobile-overlay--open' : ''}`}>
+        <nav className="mobile-overlay-nav">
+          <a href="/" className="mobile-nav-link">INICIO</a>
+          <button className="mobile-nav-link mobile-nav-link--soon">QUIÉN SOY</button>
+          <button className="mobile-nav-link mobile-nav-link--soon">CONTACTO</button>
+        </nav>
+      </div>
 
       <main className="hero">
         <div className="hero-grid">
@@ -182,7 +222,7 @@ export default function App() {
 
             <div className="hero-actions">
               <button className="btn btn-primary" onClick={() => document.getElementById('proyectos')?.scrollIntoView({ behavior: 'smooth' })}>Ver proyectos</button>
-              <button className="btn btn-secondary">Contactar</button>
+              <button className="btn btn-secondary" onClick={() => document.getElementById('contacto')?.scrollIntoView({ behavior: 'smooth' })}>Contactar</button>
             </div>
           </section>
 
@@ -203,20 +243,20 @@ export default function App() {
         <div className="services-grid">
           <article className="service-card">
             <span className="service-number">01</span>
-            <h3>Estrategia</h3>
-            <p>Definición de objetivos y arquitectura de información basada en datos.</p>
+            <h3>Web</h3>
+            <p>Diseño y desarrollo de páginas web claras, modernas y pensadas para convertir.</p>
           </article>
 
           <article className="service-card">
             <span className="service-number">02</span>
-            <h3>Diseño</h3>
-            <p>Interfaces visuales limpias, tipografía curada y jerarquía visual impecable.</p>
+            <h3>Contenido</h3>
+            <p>Creación de contenido visual y digital para dar presencia real a tu marca.</p>
           </article>
 
           <article className="service-card">
             <span className="service-number">03</span>
-            <h3>Desarrollo</h3>
-            <p>Código limpio, performance optimizado y experiencias responsivas fluidas.</p>
+            <h3>Digital</h3>
+            <p>Presencia online cuidada, coherente y adaptada a cada proyecto.</p>
           </article>
         </div>
       </section>
@@ -286,11 +326,12 @@ export default function App() {
         </div>
       </section>
 
-      <section className="contact" id="contacto">
+      <section className="contact" id="contacto" ref={contactRef}>
         <div className="contact-inner">
-          <span className="portfolio-label">CONTACTO</span>
-          <h2 className="portfolio-title">Hablemos<span className="accent-dot">.</span></h2>
+          <span className="portfolio-label">¿Necesitas ayuda?</span>
+          <h2 className="portfolio-title">Contacto<span className="accent-dot">.</span></h2>
 
+          <div className="contact-body">
           <form
             className="contact-form"
             action="https://formspree.io/f/mdaynkaw"
@@ -325,6 +366,20 @@ export default function App() {
 
             <button type="submit" className="btn btn-primary">Enviar</button>
           </form>
+
+          <div className="contact-info">
+            <p className="contact-info-main">Diseño y desarrollo de productos digitales.</p>
+            <p className="contact-info-secondary">Si tienes una idea o proyecto, puedes escribirme directamente.</p>
+
+            <div className="contact-info-details">
+              <span className="contact-label">Localización</span>
+              <p className="contact-info-detail">Mallorca, España</p>
+              <span className="contact-label">Email</span>
+              <p className="contact-info-detail">novoarodriguezale@gmail.com</p>
+            </div>
+
+          </div>
+          </div>
         </div>
       </section>
 
