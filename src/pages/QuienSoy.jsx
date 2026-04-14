@@ -7,19 +7,19 @@ import nube from '../assets/nube.png'
 const accordionItems = [
   {
     title: 'Cómo trabajo',
-    body: 'Trabajo de forma clara y directa, adaptándome a lo que necesita cada proyecto.',
+    body: 'Trabajo de forma directa y organizada, entendiendo cada proyecto y construyendo soluciones adaptadas a sus necesidades.',
   },
   {
     title: 'Qué hago',
-    body: 'Diseño y desarrollo webs visuales, funcionales y fáciles de manejar.',
+    body: 'Diseño y desarrollo páginas web funcionales, visuales y fáciles de gestionar.',
   },
   {
     title: 'Mantenimiento',
-    body: 'Si lo necesitas, la web puede quedar preparada para que la gestiones tú o contar con soporte después.',
+    body: 'Soporte y mantenimiento para asegurar que cada web funcione correctamente en el tiempo.',
   },
   {
     title: 'TooTime',
-    body: 'Además de hacer webs, estoy desarrollando TooTime, mi propia aplicación.',
+    body: 'Actualmente desarrollo TooTime, mi propia aplicación orientada a la gestión de equipos y turnos de trabajo.',
   },
 ]
 
@@ -166,26 +166,26 @@ export default function QuienSoy() {
 
           <div className="qs-col-text">
             <p>
-              Hago webs visualmente cuidadas, claras y fáciles de usar. Me
-              adapto a lo que necesita cada proyecto para que el resultado
-              tenga sentido, funcione bien y se vea profesional.
+              Diseño y desarrollo webs claras, rápidas y bien estructuradas, 
+              adaptadas a cada proyecto.
             </p>
             <p>
-              La idea es que la web no solo quede bien, sino que también sea
-              cómoda de gestionar y útil en el día a día.
+              El objetivo no es solo que la 
+              web se vea bien, sino que sea fácil de gestionar y útil en el día a día.
             </p>
           </div>
 
           <div className="qs-col-text">
             <p>
-              Trabajo de forma cercana, ordenada y profesional, buscando
-              siempre una solución que encaje de verdad con cada cliente.
-              Puedo ayudarte tanto con una web sencilla como con algo más
-              completo, según lo que necesites.
+              Trabajo de forma ordenada y profesional, 
+              buscando soluciones que encajen con cada cliente.
+
+              Puedo ayudarte tanto con una web sencilla como con 
+              proyectos más completos, según lo que necesites.
             </p>
             <p>
-              Además, también estoy desarrollando TooTime, mi propia app, así
-              que no solo hago webs: también trabajo producto y desarrollo.
+              Actualmente estoy desarrollando TooTime, mi propia aplicación
+              de gestión interna para negocios.
             </p>
           </div>
         </div>
