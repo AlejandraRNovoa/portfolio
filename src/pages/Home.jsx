@@ -1,6 +1,7 @@
 import { useRef, useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import '../App.css'
+import ContactSection from '../components/ContactSection.jsx'
 import imgPostales from '../assets/projects/postales-del-mundo.png'
 import imgTootime from '../assets/projects/tootime.png'
 import imgNomo from '../assets/projects/nomo-project.png'
@@ -135,7 +136,6 @@ function WheelGraphic() {
 export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false)
   const gridRef = useRef(null)
-  const contactRef = useRef(null)
 
   useEffect(() => {
     const cards = gridRef.current?.querySelectorAll('.project-card')
@@ -154,19 +154,18 @@ export default function Home() {
   }, [])
 
   useEffect(() => {
-    const section = contactRef.current
-    if (!section) return
-    section.classList.add('contact-anim')
+    const cards = document.querySelectorAll('.service-card')
+    if (!cards.length) return
     const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          section.classList.add('contact-section--visible')
-          observer.unobserve(section)
+      entries => entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('is-visible')
+          observer.unobserve(e.target)
         }
-      },
-      { threshold: 0.12 }
+      }),
+      { threshold: 0.2 }
     )
-    observer.observe(section)
+    cards.forEach(card => observer.observe(card))
     return () => observer.disconnect()
   }, [])
 
@@ -182,7 +181,7 @@ export default function Home() {
         <nav className="nav">
           <a href="/" className="nav-link active">INICIO</a>
           <Link to="/quien-soy" className="nav-link">QUIÉN SOY</Link>
-          <a href="#contacto" className="nav-link">CONTACTO</a>
+          <Link to="/contacto" className="nav-link">CONTACTO</Link>
         </nav>
 
         <button
@@ -202,7 +201,7 @@ export default function Home() {
         <nav className="mobile-overlay-nav">
           <a href="/" className="mobile-nav-link" onClick={() => setMenuOpen(false)}>INICIO</a>
           <Link to="/quien-soy" className="mobile-nav-link" onClick={() => setMenuOpen(false)}>QUIÉN SOY</Link>
-          <a href="#contacto" className="mobile-nav-link" onClick={() => setMenuOpen(false)}>CONTACTO</a>
+          <Link to="/contacto" className="mobile-nav-link" onClick={() => setMenuOpen(false)}>CONTACTO</Link>
         </nav>
       </div>
 
@@ -222,6 +221,8 @@ export default function Home() {
               <button className="btn btn-primary" onClick={() => document.getElementById('proyectos')?.scrollIntoView({ behavior: 'smooth' })}>Ver proyectos</button>
               <button className="btn btn-secondary" onClick={() => document.getElementById('contacto')?.scrollIntoView({ behavior: 'smooth' })}>Contactar</button>
             </div>
+
+            <div className="mobile-divider" aria-hidden="true" />
           </section>
 
           <section className="hero-right">
@@ -324,61 +325,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="contact" id="contacto" ref={contactRef}>
-        <div className="contact-inner">
-          <span className="portfolio-label">¿Necesitas ayuda?</span>
-          <h2 className="portfolio-title">Contacto<span className="accent-dot">.</span></h2>
-
-          <div className="contact-body">
-          <form
-            className="contact-form"
-            action="https://formspree.io/f/mdaynkaw"
-            method="POST"
-          >
-            <div className="contact-row">
-              <div className="contact-field">
-                <label className="contact-label" htmlFor="nombre">Nombre</label>
-                <input className="contact-input" id="nombre" name="nombre" type="text" required />
-              </div>
-              <div className="contact-field">
-                <label className="contact-label" htmlFor="apellido">Apellido</label>
-                <input className="contact-input" id="apellido" name="apellido" type="text" required />
-              </div>
-            </div>
-
-            <div className="contact-row">
-              <div className="contact-field">
-                <label className="contact-label" htmlFor="localidad">Localidad</label>
-                <input className="contact-input" id="localidad" name="localidad" type="text" />
-              </div>
-              <div className="contact-field">
-                <label className="contact-label" htmlFor="mail">Mail</label>
-                <input className="contact-input" id="mail" name="_replyto" type="email" required />
-              </div>
-            </div>
-
-            <div className="contact-field">
-              <label className="contact-label" htmlFor="mensaje">Mensaje</label>
-              <textarea className="contact-textarea contact-input" id="mensaje" name="mensaje" rows={5} required />
-            </div>
-
-            <button type="submit" className="btn btn-primary">Enviar</button>
-          </form>
-
-          <div className="contact-info">
-            <p className="contact-info-main">Diseño y desarrollo de<br />productos digitales.</p>
-            <p className="contact-info-secondary">Si tienes una idea o proyecto, puedes escribirme directamente.</p>
-
-            <div className="contact-info-details">
-              <span className="contact-label">Localización</span>
-              <p className="contact-info-detail">Mallorca, España</p>
-              <span className="contact-label">Email</span>
-              <p className="contact-info-detail">novoarodriguezale@gmail.com</p>
-            </div>
-          </div>
-          </div>
-        </div>
-      </section>
+      <ContactSection />
 
       <footer className="footer">
         <div className="footer-copy">© 2026 ALEJANDRA NOVOA. ALL RIGHTS RESERVED.</div>

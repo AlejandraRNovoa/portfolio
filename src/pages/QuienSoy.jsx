@@ -80,7 +80,7 @@ export default function QuienSoy() {
         <nav className="nav">
           <Link to="/" className="nav-link">INICIO</Link>
           <Link to="/quien-soy" className="nav-link active">QUIÉN SOY</Link>
-          <Link to="/#contacto" className="nav-link">CONTACTO</Link>
+          <Link to="/contacto" className="nav-link">CONTACTO</Link>
         </nav>
 
         <button
@@ -100,7 +100,7 @@ export default function QuienSoy() {
         <nav className="mobile-overlay-nav">
           <Link to="/" className="mobile-nav-link" onClick={() => setMenuOpen(false)}>INICIO</Link>
           <Link to="/quien-soy" className="mobile-nav-link" onClick={() => setMenuOpen(false)}>QUIÉN SOY</Link>
-          <Link to="/#contacto" className="mobile-nav-link" onClick={() => setMenuOpen(false)}>CONTACTO</Link>
+          <Link to="/contacto" className="mobile-nav-link" onClick={() => setMenuOpen(false)}>CONTACTO</Link>
         </nav>
       </div>
 

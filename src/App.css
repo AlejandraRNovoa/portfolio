@@ -514,12 +514,39 @@ button {
     padding-right: 1.2rem;
   }
 
-  .service-card h3 {
-    font-size: 1.5rem;
+  .service-card {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    column-gap: 1rem;
+    align-items: start;
   }
 
   .service-number {
-    font-size: 2.6rem;
+    font-size: 3rem;
+    grid-column: 1;
+    grid-row: 1 / span 2;
+    align-self: start;
+  }
+
+  .service-card h3 {
+    font-size: 1.5rem;
+    grid-column: 2;
+    margin-top: 0;
+  }
+
+  .service-card p {
+    grid-column: 2;
+  }
+
+  .service-card {
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+
+  .service-card.is-visible {
+    opacity: 1;
+    transform: translateY(0);
   }
 
   .projects-grid {
@@ -805,5 +832,19 @@ button {
 
   .mobile-nav-link:not(.mobile-nav-link--soon):hover {
     color: var(--accent);
+  }
+}
+/* ── Mobile divider ─────────────────────────────────── */
+.mobile-divider {
+  display: none;
+}
+
+@media (max-width: 700px) {
+  .mobile-divider {
+    display: block;
+    width: 1px;
+    height: 40px;
+    background: #d0d0d0;
+    margin: 1.25rem auto -3.5rem;
   }
 }
