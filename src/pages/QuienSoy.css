@@ -118,15 +118,13 @@
   overflow: hidden;
 }
 
-.qs-below::before {
-  content: "";
+.qs-below-texture {
   position: absolute;
   inset: 0;
-  background-image: url('../assets/textura.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  opacity: 0.25;
+  opacity: 0.55;
   z-index: 0;
   pointer-events: none;
 }
@@ -286,7 +284,7 @@
 
 .qs-stats {
   position: relative;
-  padding: 4rem 4rem 4rem;
+  padding: 4rem 4rem 2rem;
 }
 
 .qs-stats::before {
@@ -364,6 +362,177 @@
   color: #4f4f4a;
 }
 
+/* ── QS TIPOS DE PROYECTO ──────────────────────────── */
+
+.qs-tipos {
+  position: relative;
+  padding: 3rem 4rem 5rem;
+}
+
+.qs-tipos::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: #d0d0d0;
+  transform: scaleX(0);
+  transform-origin: left;
+  animation: qs-line-draw-x 1.4s cubic-bezier(0.6, 0, 0.2, 1) forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .qs-tipos::after {
+    transform: scaleX(1);
+    animation: none;
+  }
+}
+
+.qs-tipos-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.qs-tipos-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 1.5rem;
+}
+
+.qs-tp-card {
+  position: relative;
+  grid-column: span 2;
+  padding: 2rem 1.75rem;
+  min-height: 11rem;
+  display: flex;
+  background-color: #f3f3f1;
+}
+
+.qs-tp-line {
+  position: absolute;
+  background: #d0d0d0;
+  transition: background 0.25s ease;
+}
+
+.qs-tp-line-top,
+.qs-tp-line-bottom {
+  left: 0;
+  right: 0;
+  height: 1px;
+}
+
+.qs-tp-line-top { top: 0; }
+.qs-tp-line-bottom { bottom: 0; }
+
+.qs-tp-line-left,
+.qs-tp-line-right {
+  top: 0;
+  bottom: 0;
+  width: 1px;
+}
+
+.qs-tp-line-left { left: 0; }
+.qs-tp-line-right { right: 0; }
+
+.qs-tp-line-top    { transform: scaleX(0); transform-origin: left; }
+.qs-tp-line-right  { transform: scaleY(0); transform-origin: top; }
+.qs-tp-line-bottom { transform: scaleX(0); transform-origin: right; }
+.qs-tp-line-left   { transform: scaleY(0); transform-origin: bottom; }
+
+.qs-tp-content {
+  opacity: 0;
+  transform: translateY(6px);
+  display: flex;
+  gap: 1.25rem;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.qs-tp-card.is-built .qs-tp-line-top {
+  animation: qs-tp-draw-x 0.28s ease forwards;
+  animation-delay: var(--qs-tp-delay, 0s);
+}
+
+.qs-tp-card.is-built .qs-tp-line-right {
+  animation: qs-tp-draw-y 0.28s ease forwards;
+  animation-delay: calc(var(--qs-tp-delay, 0s) + 0.28s);
+}
+
+.qs-tp-card.is-built .qs-tp-line-bottom {
+  animation: qs-tp-draw-x 0.28s ease forwards;
+  animation-delay: calc(var(--qs-tp-delay, 0s) + 0.56s);
+}
+
+.qs-tp-card.is-built .qs-tp-line-left {
+  animation: qs-tp-draw-y 0.28s ease forwards;
+  animation-delay: calc(var(--qs-tp-delay, 0s) + 0.84s);
+}
+
+.qs-tp-card.is-built .qs-tp-content {
+  animation: qs-tp-fade-in 0.5s ease forwards;
+  animation-delay: calc(var(--qs-tp-delay, 0s) + 0.9s);
+}
+
+@keyframes qs-tp-draw-x {
+  to { transform: scaleX(1); }
+}
+
+@keyframes qs-tp-draw-y {
+  to { transform: scaleY(1); }
+}
+
+@keyframes qs-tp-fade-in {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.qs-tp-number {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  color: #888;
+  flex-shrink: 0;
+}
+
+.qs-tp-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.qs-tp-title {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: #111;
+  line-height: 1.2;
+}
+
+.qs-tp-body {
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: #333;
+}
+
+.qs-tp-card:hover .qs-tp-line {
+  background: #111;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .qs-tp-line,
+  .qs-tp-content {
+    transform: none !important;
+    opacity: 1 !important;
+    animation: none !important;
+  }
+}
+
 @media (max-width: 900px) {
   .qs-stats {
     padding: 2.5rem 1.2rem 1.5rem;
@@ -385,5 +554,17 @@
   .qs-stat-label {
     font-size: 0.6rem;
     letter-spacing: 0.08em;
+  }
+
+  .qs-tipos {
+    padding: 3rem 1.5rem 3.5rem;
+  }
+
+  .qs-tipos-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .qs-tp-card {
+    grid-column: span 1;
   }
 }

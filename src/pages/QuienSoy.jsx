@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import '../App.css'
 import './QuienSoy.css'
 import nube from '../assets/nube.png'
+import textura from '../assets/textura.jpg'
 
 const accordionItems = [
   {
@@ -20,6 +21,33 @@ const accordionItems = [
   {
     title: 'TooTime',
     body: 'Actualmente desarrollo TooTime, mi propia aplicación orientada a la gestión de equipos y turnos de trabajo.',
+  },
+]
+
+const projectTypes = [
+  {
+    title: 'Webs de negocio',
+    body: 'Webs claras y profesionales para negocios que necesitan presencia online.',
+  },
+  {
+    title: 'Tiendas online',
+    body: 'Estructuras limpias, pensadas para vender y fáciles de gestionar.',
+  },
+  {
+    title: 'Portfolios',
+    body: 'Diseños cuidados para mostrar trabajo y proyectos con claridad.',
+  },
+  {
+    title: 'Webs personales',
+    body: 'Páginas para presentar perfil, servicios o marca personal de forma profesional.',
+  },
+  {
+    title: 'Landing pages',
+    body: 'Páginas directas para campañas, lanzamientos o captación.',
+  },
+  {
+    title: 'Webs con reservas',
+    body: 'Sistemas para gestionar citas o reservas de forma sencilla.',
   },
 ]
 
@@ -67,6 +95,22 @@ function Counter({ from = 0, to, duration = 2000, prefix = '' }) {
 export default function QuienSoy() {
   const [menuOpen, setMenuOpen] = useState(false)
   const [openIndex, setOpenIndex] = useState(0)
+
+  useEffect(() => {
+    const cards = document.querySelectorAll('.qs-tp-card')
+    if (!cards.length) return
+    const observer = new IntersectionObserver(
+      entries => entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('is-built')
+          observer.unobserve(e.target)
+        }
+      }),
+      { threshold: 0.25 }
+    )
+    cards.forEach(card => observer.observe(card))
+    return () => observer.disconnect()
+  }, [])
 
   return (
     <div className="site-shell">
@@ -136,7 +180,42 @@ export default function QuienSoy() {
         </div>
       </section>
 
+      <section className="qs-tipos">
+        <div className="qs-tipos-inner">
+          <div className="qs-tipos-grid">
+            {projectTypes.map((item, i) => (
+              <article
+                key={item.title}
+                className="qs-tp-card"
+                style={{ '--qs-tp-delay': `${i * 0.12}s` }}
+              >
+                <span className="qs-tp-line qs-tp-line-top" />
+                <span className="qs-tp-line qs-tp-line-right" />
+                <span className="qs-tp-line qs-tp-line-bottom" />
+                <span className="qs-tp-line qs-tp-line-left" />
+
+                <div className="qs-tp-content">
+                  <span className="qs-tp-number">{String(i + 1).padStart(2, '0')}</span>
+                  <div className="qs-tp-text">
+                    <h3 className="qs-tp-title">
+                      {item.title}
+                      <span className="cursor-blink" aria-hidden="true" />
+                    </h3>
+                    <p className="qs-tp-body">{item.body}</p>
+                  </div>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <section className="qs-below">
+        <div
+          className="qs-below-texture"
+          style={{ backgroundImage: `url(${textura})` }}
+          aria-hidden="true"
+        />
         <div className="qs-below-grid">
           <div className="qs-accordion">
             {accordionItems.map((item, i) => {

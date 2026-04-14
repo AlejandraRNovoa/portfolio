@@ -243,27 +243,27 @@ export default function Home() {
           <article className="service-card">
             <span className="service-number">01</span>
             <h3>Web</h3>
-            <p>Diseño y desarrollo de páginas web claras, rápidas y bien estructuradas, adaptadas a las necesidades de cada negocio.</p>
+            <p>Diseño webs claras, rápidas y fáciles de usar, adaptadas a lo que necesita cada negocio.</p>
           </article>
 
           <article className="service-card">
             <span className="service-number">02</span>
             <h3>Contenido</h3>
-            <p>Creación de contenido visual y digital alineado con la identidad de cada proyecto.</p>
+            <p>Creación de contenido visual y digital para dar presencia real a tu marca.</p>
           </article>
 
           <article className="service-card">
             <span className="service-number">03</span>
             <h3>Digital</h3>
-            <p>Desarrollo de presencia online coherente, cuidada y adaptada a cada proyecto.</p>
+            <p>Presencia online cuidada, coherente y adaptada a cada proyecto.</p>
           </article>
         </div>
       </section>
 
       <section className="portfolio-intro" id="proyectos">
         <div className="portfolio-intro-inner">
-          <h2 className="portfolio-title">PROYECTOS:</h2>
-           <span className="portfolio-label">ÚLTIMOS TRABAJOS EN DESARROLLO:</span>
+          <h2 className="portfolio-title portfolio-title--projects">PROYECTOS</h2>
+          <span className="portfolio-label">Últimos trabajos y desarrollos en curso</span>
 
           <div className="projects-grid" ref={gridRef}>
             <a href="https://autocaravanaspm.com/" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none', cursor: 'pointer' }}>
