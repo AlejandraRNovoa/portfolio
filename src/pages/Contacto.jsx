@@ -1,13 +1,20 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import '../App.css'
+import './Contacto.css'
 import ContactSection from '../components/ContactSection.jsx'
 
 export default function Contacto() {
   const [menuOpen, setMenuOpen] = useState(false)
+  const [visible, setVisible] = useState(false)
+
+  useEffect(() => {
+    const id = requestAnimationFrame(() => setVisible(true))
+    return () => cancelAnimationFrame(id)
+  }, [])
 
   return (
-    <div className="site-shell">
+    <div className={`site-shell contact-page${visible ? ' contact-page--visible' : ''}`}>
       <header className="topbar">
         <Link to="/" className="brand" style={{ textDecoration: 'none' }}>
           <span className="brand-a">a</span>

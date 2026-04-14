@@ -523,6 +523,7 @@ button {
 
   .service-number {
     font-size: 3rem;
+    line-height: 0.85;
     grid-column: 1;
     grid-row: 1 / span 2;
     align-self: start;
@@ -532,6 +533,7 @@ button {
     font-size: 1.5rem;
     grid-column: 2;
     margin-top: 0;
+    margin-bottom: 0.4rem;
   }
 
   .service-card p {

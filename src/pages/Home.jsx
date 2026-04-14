@@ -243,7 +243,7 @@ export default function Home() {
           <article className="service-card">
             <span className="service-number">01</span>
             <h3>Web</h3>
-            <p>Diseño y desarrollo de páginas web claras, modernas y pensadas para convertir.</p>
+            <p>Diseño webs claras, rápidas y fáciles de usar, adaptadas a lo que necesita cada negocio.</p>
           </article>
 
           <article className="service-card">

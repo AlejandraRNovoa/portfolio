@@ -1,0 +1,18 @@
+.contact-page {
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.contact-page--visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .contact-page {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
