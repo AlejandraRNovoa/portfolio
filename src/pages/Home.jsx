@@ -4,7 +4,7 @@ import '../App.css'
 import ContactSection from '../components/ContactSection.jsx'
 import imgPostales from '../assets/projects/postales-del-mundo.png'
 import imgTootime from '../assets/projects/tootime.png'
-import imgNomo from '../assets/projects/nomo-project.jpg'
+import imgNomo from '../assets/projects/nomo-project.png'
 import imgScremato from '../assets/projects/scremato-coffee.png'
 
 const ROTATION_SPEED = 0.17
