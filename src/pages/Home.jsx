@@ -284,7 +284,7 @@ export default function Home() {
               <div className="project-card-header">
                 <span className="project-number">02</span>
                 <h3 className="project-name">
-                  Tootime<span className="cursor-blink" aria-hidden="true" />
+                  Tootime APP<span className="cursor-blink" aria-hidden="true" />
                 </h3>
               </div>
               <div className="project-image-wrap">
@@ -311,7 +311,7 @@ export default function Home() {
               <div className="project-card-header">
                 <span className="project-number">04</span>
                 <h3 className="project-name">
-                  Scremato Coffee<span className="cursor-blink" aria-hidden="true" />
+                  Scrematto Coffee<span className="cursor-blink" aria-hidden="true" />
                 </h3>
               </div>
               <div className="project-image-wrap project-image-wrap--wip">
