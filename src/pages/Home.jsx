@@ -3,9 +3,9 @@ import { Link } from 'react-router-dom'
 import '../App.css'
 import ContactSection from '../components/ContactSection.jsx'
 import imgPostales from '../assets/projects/postales-del-mundo.png'
-import imgTootime from '../assets/projects/tootime.png'
-import imgIvanRojo from '../assets/projects/IvanRojo.png'
-import imgNomo from '../assets/projects/nomo-project.png'
+import imgTootime from '../assets/projects/tootime.webp'
+import imgIvanRojo from '../assets/projects/ivanrojo.webp'
+import imgNomada from '../assets/projects/nomada.webp'
 import imgScremato from '../assets/projects/scremato-coffee.png'
 
 const ROTATION_SPEED = 0.17
@@ -313,11 +313,11 @@ export default function Home() {
               <div className="project-card-header">
                 <span className="project-number">04</span>
                 <h3 className="project-name">
-                  Nomo project<span className="cursor-blink" aria-hidden="true" />
+                  Nomada<span className="cursor-blink" aria-hidden="true" />
                 </h3>
               </div>
               <div className="project-image-wrap project-image-wrap--wip">
-                <img src={imgNomo} alt="Nomo" />
+                <img src={imgNomada} alt="Nomada" />
                 <div className="wip-overlay">
                   <span className="wip-label">EN CONSTRUCCIÓN</span>
                 </div>
