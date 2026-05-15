@@ -4,8 +4,7 @@ import '../App.css'
 import ContactSection from '../components/ContactSection.jsx'
 import imgPostales from '../assets/projects/postales-del-mundo.png'
 import imgTootime from '../assets/projects/tootime.png'
-import imgNomo from '../assets/projects/nomo-project.png'
-import imgScremato from '../assets/projects/scremato-coffee.png'
+import imgIvanRojo from '../assets/projects/IvanRojo.png'
 
 const ROTATION_SPEED = 0.17
 
@@ -271,56 +270,42 @@ export default function Home() {
               <div className="project-card-header">
                 <span className="project-number">01</span>
                 <h3 className="project-name">
-                  Postales del Mundo<span className="cursor-blink" aria-hidden="true" />
+                  Autocaravanas<span className="cursor-blink" aria-hidden="true" />
                 </h3>
               </div>
               <div className="project-image-wrap">
-                <img src={imgPostales} alt="Postales del Mundo" />
+                <img src={imgPostales} alt="Autocaravanas" />
               </div>
             </article>
             </a>
 
+            <a href="https://tootimeapp.com" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none', cursor: 'pointer' }}>
             <article className="project-card" data-index="1">
               <div className="project-card-header">
                 <span className="project-number">02</span>
                 <h3 className="project-name">
-                  Tootime APP<span className="cursor-blink" aria-hidden="true" />
+                  Tootime<span className="cursor-blink" aria-hidden="true" />
                 </h3>
               </div>
               <div className="project-image-wrap">
                 <img src={imgTootime} alt="Tootime" />
               </div>
             </article>
+            </a>
 
+            <a href="https://ivanrojomusic.com" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none', cursor: 'pointer' }}>
             <article className="project-card" data-index="2">
               <div className="project-card-header">
                 <span className="project-number">03</span>
                 <h3 className="project-name">
-                  Nomo project<span className="cursor-blink" aria-hidden="true" />
+                  Ivan Rojo<span className="cursor-blink" aria-hidden="true" />
                 </h3>
               </div>
-              <div className="project-image-wrap project-image-wrap--wip">
-                <img src={imgNomo} alt="Nomo" />
-                <div className="wip-overlay">
-                  <span className="wip-label">EN CONSTRUCCIÓN</span>
-                </div>
+              <div className="project-image-wrap">
+                <img src={imgIvanRojo} alt="Ivan Rojo" />
               </div>
             </article>
-
-            <article className="project-card" data-index="3">
-              <div className="project-card-header">
-                <span className="project-number">04</span>
-                <h3 className="project-name">
-                  Scrematto Coffee<span className="cursor-blink" aria-hidden="true" />
-                </h3>
-              </div>
-              <div className="project-image-wrap project-image-wrap--wip">
-                <img src={imgScremato} alt="Scremato Coffee" />
-                <div className="wip-overlay">
-                  <span className="wip-label">EN CONSTRUCCIÓN</span>
-                </div>
-              </div>
-            </article>
+            </a>
           </div>
         </div>
       </section>
