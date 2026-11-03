@@ -1,5 +1,18 @@
+
 {
   "rewrites": [
+    {
+      "source": "/personal/api/:path*",
+      "destination": "/api/personal?path=:path*"
+    },
+    {
+      "source": "/personal",
+      "destination": "/personal/index.html"
+    },
+    {
+      "source": "/personal/",
+      "destination": "/personal/index.html"
+    },
     {
       "source": "/(.*)",
       "destination": "/index.html"
